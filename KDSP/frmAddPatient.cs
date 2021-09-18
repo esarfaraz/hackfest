@@ -29,6 +29,7 @@ namespace KDSP
             p.PatientFullName = txtPatientName.Text;
             p.Sex = rdoF.Checked ? "F" : "M";
             p.Status = "Enrolled";
+            p.VisitFrequency = cmbVisitFreq.SelectedItem.ToString();
             p.TherapyDept = rdoOT.Checked ? "OT" : rdoPT.Checked ? "PT" : "ST";
 
             PatientDAL.SavePatient(p);
@@ -43,6 +44,7 @@ namespace KDSP
         private void frmAddPatient_Load(object sender, EventArgs e)
         {
             dtDOB.MaxDate = System.DateTime.Now;
+            cmbVisitFreq.SelectedIndex = 0;
         }
     }
 }

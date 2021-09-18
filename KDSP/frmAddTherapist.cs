@@ -46,6 +46,8 @@ namespace KDSP
             p.ShiftStartTime = TimeSpan.Parse(cmbStartTime.SelectedItem.ToString());
             p.ShiftEndTime = TimeSpan.Parse(cmbEndTime.SelectedItem.ToString());
             TherapistDAL.SaveTherapist(p);
+
+            TherapistDAL.GenerateSchedule(p.Id);
         }
     }
 }

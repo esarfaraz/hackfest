@@ -42,19 +42,21 @@ namespace KDSP
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdoF = new System.Windows.Forms.RadioButton();
             this.rdoM = new System.Windows.Forms.RadioButton();
+            this.rdoF = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rdoOT = new System.Windows.Forms.RadioButton();
-            this.rdoPT = new System.Windows.Forms.RadioButton();
             this.rdoST = new System.Windows.Forms.RadioButton();
+            this.rdoPT = new System.Windows.Forms.RadioButton();
+            this.rdoOT = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbVisitFreq = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(33, 309);
+            this.btnRegister.Location = new System.Drawing.Point(33, 320);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 0;
@@ -65,7 +67,7 @@ namespace KDSP
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 54);
+            this.label1.Location = new System.Drawing.Point(24, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 1;
@@ -73,28 +75,28 @@ namespace KDSP
             // 
             // txtPatientName
             // 
-            this.txtPatientName.Location = new System.Drawing.Point(153, 54);
+            this.txtPatientName.Location = new System.Drawing.Point(153, 21);
             this.txtPatientName.Name = "txtPatientName";
             this.txtPatientName.Size = new System.Drawing.Size(200, 20);
             this.txtPatientName.TabIndex = 2;
             // 
             // txtFatherName
             // 
-            this.txtFatherName.Location = new System.Drawing.Point(153, 91);
+            this.txtFatherName.Location = new System.Drawing.Point(153, 58);
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(200, 20);
             this.txtFatherName.TabIndex = 3;
             // 
             // txtContactNo
             // 
-            this.txtContactNo.Location = new System.Drawing.Point(153, 118);
+            this.txtContactNo.Location = new System.Drawing.Point(153, 85);
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(200, 20);
             this.txtContactNo.TabIndex = 4;
             // 
             // dtDOB
             // 
-            this.dtDOB.Location = new System.Drawing.Point(153, 178);
+            this.dtDOB.Location = new System.Drawing.Point(153, 145);
             this.dtDOB.Name = "dtDOB";
             this.dtDOB.Size = new System.Drawing.Size(200, 20);
             this.dtDOB.TabIndex = 6;
@@ -102,7 +104,7 @@ namespace KDSP
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 91);
+            this.label2.Location = new System.Drawing.Point(22, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 7;
@@ -111,7 +113,7 @@ namespace KDSP
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 124);
+            this.label3.Location = new System.Drawing.Point(23, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 8;
@@ -120,7 +122,7 @@ namespace KDSP
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 154);
+            this.label4.Location = new System.Drawing.Point(24, 121);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 10;
@@ -129,7 +131,7 @@ namespace KDSP
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 184);
+            this.label5.Location = new System.Drawing.Point(25, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 11;
@@ -138,7 +140,7 @@ namespace KDSP
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 216);
+            this.label6.Location = new System.Drawing.Point(24, 183);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 13);
             this.label6.TabIndex = 12;
@@ -146,7 +148,7 @@ namespace KDSP
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(153, 308);
+            this.btnCancel.Location = new System.Drawing.Point(153, 319);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 16;
@@ -157,22 +159,11 @@ namespace KDSP
             // 
             this.groupBox1.Controls.Add(this.rdoM);
             this.groupBox1.Controls.Add(this.rdoF);
-            this.groupBox1.Location = new System.Drawing.Point(153, 144);
+            this.groupBox1.Location = new System.Drawing.Point(153, 111);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 32);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            // 
-            // rdoF
-            // 
-            this.rdoF.AutoSize = true;
-            this.rdoF.Location = new System.Drawing.Point(109, 9);
-            this.rdoF.Name = "rdoF";
-            this.rdoF.Size = new System.Drawing.Size(59, 17);
-            this.rdoF.TabIndex = 1;
-            this.rdoF.TabStop = true;
-            this.rdoF.Text = "Female";
-            this.rdoF.UseVisualStyleBackColor = true;
             // 
             // rdoM
             // 
@@ -185,38 +176,27 @@ namespace KDSP
             this.rdoM.Text = "Male";
             this.rdoM.UseVisualStyleBackColor = true;
             // 
+            // rdoF
+            // 
+            this.rdoF.AutoSize = true;
+            this.rdoF.Location = new System.Drawing.Point(109, 9);
+            this.rdoF.Name = "rdoF";
+            this.rdoF.Size = new System.Drawing.Size(59, 17);
+            this.rdoF.TabIndex = 1;
+            this.rdoF.TabStop = true;
+            this.rdoF.Text = "Female";
+            this.rdoF.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rdoST);
             this.groupBox2.Controls.Add(this.rdoPT);
             this.groupBox2.Controls.Add(this.rdoOT);
-            this.groupBox2.Location = new System.Drawing.Point(153, 202);
+            this.groupBox2.Location = new System.Drawing.Point(153, 169);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 100);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
-            // 
-            // rdoOT
-            // 
-            this.rdoOT.AutoSize = true;
-            this.rdoOT.Location = new System.Drawing.Point(7, 20);
-            this.rdoOT.Name = "rdoOT";
-            this.rdoOT.Size = new System.Drawing.Size(130, 17);
-            this.rdoOT.TabIndex = 0;
-            this.rdoOT.TabStop = true;
-            this.rdoOT.Text = "Occupational Therapy";
-            this.rdoOT.UseVisualStyleBackColor = true;
-            // 
-            // rdoPT
-            // 
-            this.rdoPT.AutoSize = true;
-            this.rdoPT.Location = new System.Drawing.Point(7, 44);
-            this.rdoPT.Name = "rdoPT";
-            this.rdoPT.Size = new System.Drawing.Size(106, 17);
-            this.rdoPT.TabIndex = 1;
-            this.rdoPT.TabStop = true;
-            this.rdoPT.Text = "Physical Therapy";
-            this.rdoPT.UseVisualStyleBackColor = true;
             // 
             // rdoST
             // 
@@ -229,11 +209,56 @@ namespace KDSP
             this.rdoST.Text = "Speech Therapy";
             this.rdoST.UseVisualStyleBackColor = true;
             // 
+            // rdoPT
+            // 
+            this.rdoPT.AutoSize = true;
+            this.rdoPT.Location = new System.Drawing.Point(7, 44);
+            this.rdoPT.Name = "rdoPT";
+            this.rdoPT.Size = new System.Drawing.Size(106, 17);
+            this.rdoPT.TabIndex = 1;
+            this.rdoPT.TabStop = true;
+            this.rdoPT.Text = "Physical Therapy";
+            this.rdoPT.UseVisualStyleBackColor = true;
+            // 
+            // rdoOT
+            // 
+            this.rdoOT.AutoSize = true;
+            this.rdoOT.Location = new System.Drawing.Point(7, 20);
+            this.rdoOT.Name = "rdoOT";
+            this.rdoOT.Size = new System.Drawing.Size(130, 17);
+            this.rdoOT.TabIndex = 0;
+            this.rdoOT.TabStop = true;
+            this.rdoOT.Text = "Occupational Therapy";
+            this.rdoOT.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 279);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Visit Frequency :";
+            // 
+            // cmbVisitFreq
+            // 
+            this.cmbVisitFreq.FormattingEnabled = true;
+            this.cmbVisitFreq.Items.AddRange(new object[] {
+            "Weekly",
+            "Bi-Monthly",
+            "Monthly"});
+            this.cmbVisitFreq.Location = new System.Drawing.Point(157, 277);
+            this.cmbVisitFreq.Name = "cmbVisitFreq";
+            this.cmbVisitFreq.Size = new System.Drawing.Size(121, 21);
+            this.cmbVisitFreq.TabIndex = 20;
+            // 
             // frmAddPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 376);
+            this.Controls.Add(this.cmbVisitFreq);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label6);
@@ -280,6 +305,8 @@ namespace KDSP
         private System.Windows.Forms.RadioButton rdoST;
         private System.Windows.Forms.RadioButton rdoPT;
         private System.Windows.Forms.RadioButton rdoOT;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbVisitFreq;
     }
 }
 

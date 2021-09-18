@@ -36,7 +36,6 @@ namespace KDSPModels
         public virtual DbSet<TherapyCharge> TherapyCharges { get; set; }
         public virtual DbSet<WaitingList> WaitingLists { get; set; }
         public virtual DbSet<HolidayCalendar> HolidayCalendars { get; set; }
-        public virtual DbSet<v_PatientWaitingList> v_PatientWaitingList { get; set; }
     
         public virtual int usp_GenerateTherapistSchedule(Nullable<int> therapistId)
         {

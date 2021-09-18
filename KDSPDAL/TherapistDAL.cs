@@ -20,5 +20,17 @@ namespace KDSPDAL
             }
             return result;
         }
+
+        public static bool GenerateSchedule(int TherpaistId)
+        {
+            bool result = false;
+            using (KDSPEntities _entity = new KDSPEntities())
+            {
+                _entity.usp_GenerateTherapistSchedule(TherpaistId);
+                
+                result = true;
+            }
+            return result;
+        }
     }
 }
