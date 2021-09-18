@@ -130,7 +130,7 @@ namespace KDSP
 
         private void MngTherapistMenu_Click(object sender, EventArgs e)
         {
-            frmWaitingList childForm = new frmWaitingList();
+            frmAppointment childForm = new frmAppointment();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
             childForm.Show();
