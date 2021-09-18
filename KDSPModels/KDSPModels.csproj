@@ -86,6 +86,9 @@
     <Compile Include="TherapyCharge.cs">
       <DependentUpon>KDSPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_PatientWaitingList.cs">
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="WaitingList.cs">
       <DependentUpon>KDSPModel.tt</DependentUpon>
     </Compile>

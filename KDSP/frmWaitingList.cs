@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KDSPDAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +11,16 @@ using System.Windows.Forms;
 
 namespace KDSP
 {
-    public partial class frmAppointment : Form
+    public partial class frmWaitingList : Form
     {
-        public frmAppointment()
+        public frmWaitingList()
         {
             InitializeComponent();
         }
 
-        private void frmAppointment_Load(object sender, EventArgs e)
+        private void frmWaitingList_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource = WaitingListDAL.GetPatientWaitings();
         }
     }
 }

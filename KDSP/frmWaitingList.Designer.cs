@@ -1,7 +1,7 @@
 ﻿
 namespace KDSP
 {
-    partial class frmAppointment
+    partial class frmWaitingList
     {
         /// <summary>
         /// Required designer variable.
@@ -36,20 +36,20 @@ namespace KDSP
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(217, 146);
+            this.dataGridView1.Location = new System.Drawing.Point(170, 130);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
             this.dataGridView1.TabIndex = 0;
             // 
-            // frmAppointment
+            // frmWaitingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmAppointment";
-            this.Text = "frmAppointment";
-            this.Load += new System.EventHandler(this.frmAppointment_Load);
+            this.Name = "frmWaitingList";
+            this.Text = "frmWaitingList";
+            this.Load += new System.EventHandler(this.frmWaitingList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

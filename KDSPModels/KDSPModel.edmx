@@ -69,6 +69,8 @@
           <Property Name="TherapyDept" Type="char" MaxLength="2" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
           <Property Name="VisitFrequency" Type="varchar" MaxLength="10" />
+          <Property Name="PaidCharges" Type="int" />
+          <Property Name="PendingCharges" Type="int" />
         </EntityType>
         <EntityType Name="Therapists">
           <Key>
@@ -132,6 +134,23 @@
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KDSP.dbo.v_PatientWaitingList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_PatientWaitingList">
+          <Key>
+            <PropertyRef Name="PId" />
+            <PropertyRef Name="WLId" />
+          </Key>
+          <Property Name="PId" Type="int" Nullable="false" />
+          <Property Name="PatientRegNo" Type="varchar" MaxLength="50" />
+          <Property Name="PatientFullName" Type="varchar" MaxLength="100" />
+          <Property Name="TherapyDept" Type="char" MaxLength="2" />
+          <Property Name="PStatus" Type="varchar" MaxLength="50" />
+          <Property Name="VisitFrequency" Type="varchar" MaxLength="10" />
+          <Property Name="WLId" Type="int" Nullable="false" />
+          <Property Name="WLStatus" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
         <Function Name="usp_GenerateTherapistSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TherapistId" Type="int" Mode="In" />
         </Function>
@@ -145,6 +164,19 @@
           <EntitySet Name="TherapistSchedule" EntityType="Self.TherapistSchedule" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TherapyCharges" EntityType="Self.TherapyCharges" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WaitingList" EntityType="Self.WaitingList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_PatientWaitingList" EntityType="Self.v_PatientWaitingList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_PatientWaitingList].[PId] AS [PId], 
+    [v_PatientWaitingList].[PatientRegNo] AS [PatientRegNo], 
+    [v_PatientWaitingList].[PatientFullName] AS [PatientFullName], 
+    [v_PatientWaitingList].[TherapyDept] AS [TherapyDept], 
+    [v_PatientWaitingList].[PStatus] AS [PStatus], 
+    [v_PatientWaitingList].[VisitFrequency] AS [VisitFrequency], 
+    [v_PatientWaitingList].[WLId] AS [WLId], 
+    [v_PatientWaitingList].[WLStatus] AS [WLStatus], 
+    [v_PatientWaitingList].[DateCreated] AS [DateCreated]
+    FROM [dbo].[v_PatientWaitingList] AS [v_PatientWaitingList]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -206,6 +238,8 @@
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="VisitFrequency" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="PatientRegNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaidCharges" Type="Int32" />
+          <Property Name="PendingCharges" Type="Int32" />
         </EntityType>
         <EntityType Name="Therapist">
           <Key>
@@ -280,8 +314,9 @@
           <EntitySet Name="WaitingLists" EntityType="Self.WaitingList" />
           <EntitySet Name="HolidayCalendars" EntityType="KDSPModel.HolidayCalendar" />
           <FunctionImport Name="usp_GenerateTherapistSchedule">
-            <Parameter Name="TherapistId" Mode="In" Type="Int32" />
+          <Parameter Name="TherapistId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="v_PatientWaitingList" EntityType="KDSPModel.v_PatientWaitingList" />
         </EntityContainer>
         <EntityType Name="HolidayCalendar">
           <Key>
@@ -290,6 +325,21 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="HolidayName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="v_PatientWaitingList">
+          <Key>
+            <PropertyRef Name="PId" />
+            <PropertyRef Name="WLId" />
+          </Key>
+          <Property Name="PId" Type="Int32" Nullable="false" />
+          <Property Name="PatientRegNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PatientFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TherapyDept" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="PStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VisitFrequency" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="WLId" Type="Int32" Nullable="false" />
+          <Property Name="WLStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -342,6 +392,8 @@
           <EntitySetMapping Name="Patients">
             <EntityTypeMapping TypeName="KDSPModel.Patient">
               <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="PendingCharges" ColumnName="PendingCharges" />
+                <ScalarProperty Name="PaidCharges" ColumnName="PaidCharges" />
                 <ScalarProperty Name="PatientRegNo" ColumnName="PatientRegNo" />
                 <ScalarProperty Name="VisitFrequency" ColumnName="VisitFrequency" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -434,6 +486,21 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="usp_GenerateTherapistSchedule" FunctionName="KDSPModel.Store.usp_GenerateTherapistSchedule" />
+          <EntitySetMapping Name="v_PatientWaitingList">
+            <EntityTypeMapping TypeName="KDSPModel.v_PatientWaitingList">
+              <MappingFragment StoreEntitySet="v_PatientWaitingList">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="WLStatus" ColumnName="WLStatus" />
+                <ScalarProperty Name="WLId" ColumnName="WLId" />
+                <ScalarProperty Name="VisitFrequency" ColumnName="VisitFrequency" />
+                <ScalarProperty Name="PStatus" ColumnName="PStatus" />
+                <ScalarProperty Name="TherapyDept" ColumnName="TherapyDept" />
+                <ScalarProperty Name="PatientFullName" ColumnName="PatientFullName" />
+                <ScalarProperty Name="PatientRegNo" ColumnName="PatientRegNo" />
+                <ScalarProperty Name="PId" ColumnName="PId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

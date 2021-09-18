@@ -1,4 +1,5 @@
-﻿using KDSPModels;
+﻿using KDSPModelDTOs;
+using KDSPModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,32 @@ namespace KDSPDAL
             }
             return result;
         }
+
+        public static List<PatientWaitingDTO> GetPatientWaitings()
+        {
+            using (KDSPEntities _entity = new KDSPEntities())
+            {
+                var innerJoin = from p in _entity.Patients
+                                join wl in _entity.WaitingLists on p.Id equals wl.PatientId
+                                orderby wl.DateCreated
+                                select new PatientWaitingDTO
+                                {
+                                    PId = p.Id,
+                                    PatientFullName = p.PatientFullName,
+                                    TherapyDept = p.TherapyDept,
+                                    PStatus = p.Status,
+                                    VisitFrequency = p.VisitFrequency,
+                                    PatientRegNo = p.PatientRegNo,
+                                    WId = wl.Id,
+                                    WLStatus = wl.Status,
+                                    DateCreated = wl.DateCreated
+                                };
+
+                return (List<PatientWaitingDTO>)innerJoin;
+            }
+        }
+
+
+
     }
 }

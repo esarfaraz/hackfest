@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KDSPDataSet" targetNamespace="http://tempuri.org/KDSPDataSet2.xsd" xmlns:mstns="http://tempuri.org/KDSPDataSet2.xsd" xmlns="http://tempuri.org/KDSPDataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TestConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TestConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.KDSP.Properties.Settings.GlobalReference.Default.TestConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="v_PatientWaitingListTableAdapter" GeneratorDataComponentClassName="v_PatientWaitingListTableAdapter" Name="v_PatientWaitingList" UserDataComponentName="v_PatientWaitingListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TestConnectionString (Settings)" DbObjectName="KDSP.dbo.v_PatientWaitingList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PatientRegNo, PatientFullName, TherapyDept, Status, WLStatus, DateCreated FROM dbo.v_PatientWaitingList</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PatientRegNo" DataSetColumn="PatientRegNo" />
+              <Mapping SourceColumn="PatientFullName" DataSetColumn="PatientFullName" />
+              <Mapping SourceColumn="TherapyDept" DataSetColumn="TherapyDept" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="WLStatus" DataSetColumn="WLStatus" />
+              <Mapping SourceColumn="DateCreated" DataSetColumn="DateCreated" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KDSPDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="KDSPDataSet" msprop:Generator_UserDSName="KDSPDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="v_PatientWaitingList" msprop:Generator_TableClassName="v_PatientWaitingListDataTable" msprop:Generator_TableVarName="tablev_PatientWaitingList" msprop:Generator_TablePropName="v_PatientWaitingList" msprop:Generator_RowDeletingName="v_PatientWaitingListRowDeleting" msprop:Generator_RowChangingName="v_PatientWaitingListRowChanging" msprop:Generator_RowEvHandlerName="v_PatientWaitingListRowChangeEventHandler" msprop:Generator_RowDeletedName="v_PatientWaitingListRowDeleted" msprop:Generator_UserTableName="v_PatientWaitingList" msprop:Generator_RowChangedName="v_PatientWaitingListRowChanged" msprop:Generator_RowEvArgName="v_PatientWaitingListRowChangeEvent" msprop:Generator_RowClassName="v_PatientWaitingListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PatientRegNo" msprop:Generator_ColumnVarNameInTable="columnPatientRegNo" msprop:Generator_ColumnPropNameInRow="PatientRegNo" msprop:Generator_ColumnPropNameInTable="PatientRegNoColumn" msprop:Generator_UserColumnName="PatientRegNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PatientFullName" msprop:Generator_ColumnVarNameInTable="columnPatientFullName" msprop:Generator_ColumnPropNameInRow="PatientFullName" msprop:Generator_ColumnPropNameInTable="PatientFullNameColumn" msprop:Generator_UserColumnName="PatientFullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TherapyDept" msprop:Generator_ColumnVarNameInTable="columnTherapyDept" msprop:Generator_ColumnPropNameInRow="TherapyDept" msprop:Generator_ColumnPropNameInTable="TherapyDeptColumn" msprop:Generator_UserColumnName="TherapyDept" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WLStatus" msprop:Generator_ColumnVarNameInTable="columnWLStatus" msprop:Generator_ColumnPropNameInRow="WLStatus" msprop:Generator_ColumnPropNameInTable="WLStatusColumn" msprop:Generator_UserColumnName="WLStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateCreated" msprop:Generator_ColumnVarNameInTable="columnDateCreated" msprop:Generator_ColumnPropNameInRow="DateCreated" msprop:Generator_ColumnPropNameInTable="DateCreatedColumn" msprop:Generator_UserColumnName="DateCreated" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -16,7 +16,7 @@ namespace KDSP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAddTherapist());
+            Application.Run(new MDIParent1());
         }
     }
 }

@@ -12,22 +12,16 @@ namespace KDSPModels
     using System;
     using System.Collections.Generic;
     
-    public partial class Patient
+    public partial class v_PatientWaitingList
     {
-        public int Id { get; set; }
-        public string PatientFullName { get; set; }
-        public Nullable<System.DateTime> DOB { get; set; }
-        public string FatherFullName { get; set; }
-        public string Sex { get; set; }
-        public string Address { get; set; }
-        public Nullable<System.DateTime> DateCreated { get; set; }
-        public string ContactNo { get; set; }
-        public string Remarks { get; set; }
-        public string TherapyDept { get; set; }
-        public string Status { get; set; }
-        public string VisitFrequency { get; set; }
+        public int PId { get; set; }
         public string PatientRegNo { get; set; }
-        public Nullable<int> PaidCharges { get; set; }
-        public Nullable<int> PendingCharges { get; set; }
+        public string PatientFullName { get; set; }
+        public string TherapyDept { get; set; }
+        public string PStatus { get; set; }
+        public string VisitFrequency { get; set; }
+        public int WLId { get; set; }
+        public string WLStatus { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
     }
 }

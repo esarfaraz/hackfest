@@ -67,6 +67,18 @@
     <Compile Include="frmAddPatient.Designer.cs">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAppointment.Designer.cs">
+      <DependentUpon>frmAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWaitingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWaitingList.Designer.cs">
+      <DependentUpon>frmWaitingList.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +92,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddPatient.resx">
       <DependentUpon>frmAddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAppointment.resx">
+      <DependentUpon>frmAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWaitingList.resx">
+      <DependentUpon>frmWaitingList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIParent1.resx">
       <DependentUpon>MDIParent1.cs</DependentUpon>
@@ -114,6 +132,10 @@
     <ProjectReference Include="..\KDSPDAL\KDSPDAL.csproj">
       <Project>{298f8980-009b-40c5-b6e5-0adeb79c3ddc}</Project>
       <Name>KDSPDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KDSPModelDTOs\KDSPModelDTOs.csproj">
+      <Project>{D1B368A7-A388-4658-A43F-47F2708CDCAE}</Project>
+      <Name>KDSPModelDTOs</Name>
     </ProjectReference>
     <ProjectReference Include="..\KDSPModels\KDSPModels.csproj">
       <Project>{9fe05098-16ec-48a5-8112-57616159f235}</Project>

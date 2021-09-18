@@ -21,7 +21,7 @@ namespace KDSP
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            Form childForm = new Form();
+            frmAddPatient childForm = new frmAddPatient();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
             childForm.Show();
@@ -102,6 +102,38 @@ namespace KDSP
             {
                 childForm.Close();
             }
+        }
+
+        private void AddPatientMenu_Click(object sender, EventArgs e)
+        {
+            frmAddPatient childForm = new frmAddPatient();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.Show();
+        }
+
+        private void AddTherapistMenu_Click(object sender, EventArgs e)
+        {
+            frmAddTherapist childForm = new frmAddTherapist();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.Show();
+        }
+
+        private void WaitingListMenu_Click(object sender, EventArgs e)
+        {
+            frmWaitingList childForm = new frmWaitingList();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.Show();
+        }
+
+        private void MngTherapistMenu_Click(object sender, EventArgs e)
+        {
+            frmWaitingList childForm = new frmWaitingList();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.Show();
         }
     }
 }

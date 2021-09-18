@@ -35,7 +35,7 @@ namespace KDSP
 
             WaitingList wl = new WaitingList();
             wl.PatientId = p.Id;
-            wl.Status = "Enrolled";
+            wl.Status = "Waiting";
             WaitingListDAL.SaveWaitingList(wl);
 
         }

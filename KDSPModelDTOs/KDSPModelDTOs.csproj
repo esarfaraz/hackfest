@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{298F8980-009B-40C5-B6E5-0ADEB79C3DDC}</ProjectGuid>
+    <ProjectGuid>{D1B368A7-A388-4658-A43F-47F2708CDCAE}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>KDSPDAL</RootNamespace>
-    <AssemblyName>KDSPDAL</AssemblyName>
+    <RootNamespace>KDSPModelDTOs</RootNamespace>
+    <AssemblyName>KDSPModelDTOs</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,35 +37,9 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ADODAL.cs" />
-    <Compile Include="AppointmentDAL.cs" />
-    <Compile Include="PatientDAL.cs" />
-    <Compile Include="TherapistDAL.cs" />
-    <Compile Include="WaitingListDAL.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\KDSPModelDTOs\KDSPModelDTOs.csproj">
-      <Project>{D1B368A7-A388-4658-A43F-47F2708CDCAE}</Project>
-      <Name>KDSPModelDTOs</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KDSPModels\KDSPModels.csproj">
-      <Project>{9fe05098-16ec-48a5-8112-57616159f235}</Project>
-      <Name>KDSPModels</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Data" />
+    <Compile Include="PatientWaiting.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
