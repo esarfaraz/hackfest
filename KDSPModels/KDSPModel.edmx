@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KDSPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HolidayCalendar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="HolidayName" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="MasterSheet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="TherapistId" Type="int" />
+          <Property Name="PatientAppointmentId" Type="int" />
+          <Property Name="PatientPaymentHistoryId" Type="int" />
+          <Property Name="TherapyStatus" Type="varchar" MaxLength="50" />
+          <Property Name="FirstCancellationOfMonth" Type="char" MaxLength="1" />
+          <Property Name="Inform24HrPrior" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="PatientAppointments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="TherapistId" Type="int" />
+          <Property Name="SessionNumber" Type="int" />
+          <Property Name="TherapistScheduleId" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="PaymentStatus" Type="varchar" MaxLength="50" />
+          <Property Name="AppointmentDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PatientPaymentHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="PatientAppointmentId" Type="int" />
+          <Property Name="ReceiptNo" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="PaymentAmount" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="ECIRepFullName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientRegNo" Type="varchar" MaxLength="50" />
+          <Property Name="PatientFullName" Type="varchar" MaxLength="100" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="FatherFullName" Type="varchar" MaxLength="100" />
+          <Property Name="Sex" Type="char" MaxLength="1" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="1000" />
+          <Property Name="TherapyDept" Type="char" MaxLength="2" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="VisitFrequency" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Therapists">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TherapistRegNo" Type="varchar" MaxLength="50" />
+          <Property Name="TherapistFullName" Type="varchar" MaxLength="100" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Sex" Type="char" MaxLength="1" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="OTTherapist" Type="char" MaxLength="1" />
+          <Property Name="PTTherapist" Type="char" MaxLength="1" />
+          <Property Name="StTherapist" Type="char" MaxLength="1" />
+          <Property Name="ShiftStartTime" Type="time" Precision="7" />
+          <Property Name="ShiftEndTime" Type="time" Precision="7" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="ClinicStartDate" Type="date" />
+          <Property Name="ClinicEndDate" Type="date" />
+          <Property Name="IsSatWorking" Type="char" MaxLength="1" />
+          <Property Name="IsSunWorking" Type="char" MaxLength="1" />
+          <Property Name="IsMonWorking" Type="char" MaxLength="1" />
+          <Property Name="IsTueWorking" Type="char" MaxLength="1" />
+          <Property Name="IsWedWorking" Type="char" MaxLength="1" />
+          <Property Name="IsThuWorking" Type="char" MaxLength="1" />
+          <Property Name="IsFriWorking" Type="char" MaxLength="1" />
+          <Property Name="BreakStartTime" Type="time" Precision="7" />
+          <Property Name="BreakEndTime" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="TherapistSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TherapistId" Type="int" />
+          <Property Name="ScheduleDate" Type="date" />
+          <Property Name="EndTime" Type="time" Precision="7" />
+          <Property Name="StartTime" Type="time" Precision="7" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TherapyCharges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Therapy" Type="char" MaxLength="2" />
+          <Property Name="Charges" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WaitingList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="usp_GenerateTherapistSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TherapistId" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="KDSPModelStoreContainer">
+          <EntitySet Name="HolidayCalendar" EntityType="Self.HolidayCalendar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasterSheet" EntityType="Self.MasterSheet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientAppointments" EntityType="Self.PatientAppointments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientPaymentHistory" EntityType="Self.PatientPaymentHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Therapists" EntityType="Self.Therapists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TherapistSchedule" EntityType="Self.TherapistSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TherapyCharges" EntityType="Self.TherapyCharges" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WaitingList" EntityType="Self.WaitingList" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KDSPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MasterSheet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="TherapistId" Type="Int32" />
+          <Property Name="PatientAppointmentId" Type="Int32" />
+          <Property Name="PatientPaymentHistoryId" Type="Int32" />
+          <Property Name="TherapyStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstCancellationOfMonth" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Inform24HrPrior" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PatientAppointment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="TherapistId" Type="Int32" />
+          <Property Name="SessionNumber" Type="Int32" />
+          <Property Name="TherapistScheduleId" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AppointmentDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="PatientPaymentHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="PatientAppointmentId" Type="Int32" />
+          <Property Name="ReceiptNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="PaymentAmount" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ECIRepFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="FatherFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="TherapyDept" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VisitFrequency" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PatientRegNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Therapist">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TherapistFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ShiftStartTime" Type="Time" Precision="7" />
+          <Property Name="ShiftEndTime" Type="Time" Precision="7" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClinicStartDate" Type="DateTime" Precision="0" />
+          <Property Name="ClinicEndDate" Type="DateTime" Precision="0" />
+          <Property Name="IsSatWorking" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsSunWorking" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsMonWorking" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsTueWorking" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsWedWorking" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsThuWorking" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsFriWorking" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BreakStartTime" Type="Time" Precision="7" />
+          <Property Name="BreakEndTime" Type="Time" Precision="7" />
+          <Property Name="OTTherapist" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PTTherapist" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="StTherapist" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TherapistRegNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TherapistSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TherapistId" Type="Int32" />
+          <Property Name="ScheduleDate" Type="DateTime" Precision="0" />
+          <Property Name="EndTime" Type="Time" Precision="7" />
+          <Property Name="StartTime" Type="Time" Precision="7" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TherapyCharge">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Therapy" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Charges" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="WaitingList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="KDSPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MasterSheets" EntityType="Self.MasterSheet" />
+          <EntitySet Name="PatientAppointments" EntityType="Self.PatientAppointment" />
+          <EntitySet Name="PatientPaymentHistories" EntityType="Self.PatientPaymentHistory" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Therapists" EntityType="Self.Therapist" />
+          <EntitySet Name="TherapistSchedules" EntityType="Self.TherapistSchedule" />
+          <EntitySet Name="TherapyCharges" EntityType="Self.TherapyCharge" />
+          <EntitySet Name="WaitingLists" EntityType="Self.WaitingList" />
+          <EntitySet Name="HolidayCalendars" EntityType="KDSPModel.HolidayCalendar" />
+          <FunctionImport Name="usp_GenerateTherapistSchedule">
+            <Parameter Name="TherapistId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="HolidayCalendar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="HolidayName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KDSPModelStoreContainer" CdmEntityContainer="KDSPEntities">
+          <EntitySetMapping Name="MasterSheets">
+            <EntityTypeMapping TypeName="KDSPModel.MasterSheet">
+              <MappingFragment StoreEntitySet="MasterSheet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+                <ScalarProperty Name="PatientAppointmentId" ColumnName="PatientAppointmentId" />
+                <ScalarProperty Name="PatientPaymentHistoryId" ColumnName="PatientPaymentHistoryId" />
+                <ScalarProperty Name="TherapyStatus" ColumnName="TherapyStatus" />
+                <ScalarProperty Name="FirstCancellationOfMonth" ColumnName="FirstCancellationOfMonth" />
+                <ScalarProperty Name="Inform24HrPrior" ColumnName="Inform24HrPrior" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientAppointments">
+            <EntityTypeMapping TypeName="KDSPModel.PatientAppointment">
+              <MappingFragment StoreEntitySet="PatientAppointments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+                <ScalarProperty Name="SessionNumber" ColumnName="SessionNumber" />
+                <ScalarProperty Name="TherapistScheduleId" ColumnName="TherapistScheduleId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientPaymentHistories">
+            <EntityTypeMapping TypeName="KDSPModel.PatientPaymentHistory">
+              <MappingFragment StoreEntitySet="PatientPaymentHistory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="PatientAppointmentId" ColumnName="PatientAppointmentId" />
+                <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ECIRepFullName" ColumnName="ECIRepFullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="KDSPModel.Patient">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="PatientRegNo" ColumnName="PatientRegNo" />
+                <ScalarProperty Name="VisitFrequency" ColumnName="VisitFrequency" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientFullName" ColumnName="PatientFullName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="FatherFullName" ColumnName="FatherFullName" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="TherapyDept" ColumnName="TherapyDept" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Therapists">
+            <EntityTypeMapping TypeName="KDSPModel.Therapist">
+              <MappingFragment StoreEntitySet="Therapists">
+                <ScalarProperty Name="TherapistRegNo" ColumnName="TherapistRegNo" />
+                <ScalarProperty Name="StTherapist" ColumnName="StTherapist" />
+                <ScalarProperty Name="PTTherapist" ColumnName="PTTherapist" />
+                <ScalarProperty Name="OTTherapist" ColumnName="OTTherapist" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TherapistFullName" ColumnName="TherapistFullName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ShiftStartTime" ColumnName="ShiftStartTime" />
+                <ScalarProperty Name="ShiftEndTime" ColumnName="ShiftEndTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ClinicStartDate" ColumnName="ClinicStartDate" />
+                <ScalarProperty Name="ClinicEndDate" ColumnName="ClinicEndDate" />
+                <ScalarProperty Name="IsSatWorking" ColumnName="IsSatWorking" />
+                <ScalarProperty Name="IsSunWorking" ColumnName="IsSunWorking" />
+                <ScalarProperty Name="IsMonWorking" ColumnName="IsMonWorking" />
+                <ScalarProperty Name="IsTueWorking" ColumnName="IsTueWorking" />
+                <ScalarProperty Name="IsWedWorking" ColumnName="IsWedWorking" />
+                <ScalarProperty Name="IsThuWorking" ColumnName="IsThuWorking" />
+                <ScalarProperty Name="IsFriWorking" ColumnName="IsFriWorking" />
+                <ScalarProperty Name="BreakStartTime" ColumnName="BreakStartTime" />
+                <ScalarProperty Name="BreakEndTime" ColumnName="BreakEndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TherapistSchedules">
+            <EntityTypeMapping TypeName="KDSPModel.TherapistSchedule">
+              <MappingFragment StoreEntitySet="TherapistSchedule">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TherapistId" ColumnName="TherapistId" />
+                <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TherapyCharges">
+            <EntityTypeMapping TypeName="KDSPModel.TherapyCharge">
+              <MappingFragment StoreEntitySet="TherapyCharges">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Therapy" ColumnName="Therapy" />
+                <ScalarProperty Name="Charges" ColumnName="Charges" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaitingLists">
+            <EntityTypeMapping TypeName="KDSPModel.WaitingList">
+              <MappingFragment StoreEntitySet="WaitingList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HolidayCalendars">
+            <EntityTypeMapping TypeName="KDSPModel.HolidayCalendar">
+              <MappingFragment StoreEntitySet="HolidayCalendar">
+                <ScalarProperty Name="HolidayName" ColumnName="HolidayName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_GenerateTherapistSchedule" FunctionName="KDSPModel.Store.usp_GenerateTherapistSchedule" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

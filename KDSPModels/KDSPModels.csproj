@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9FE05098-16EC-48A5-8112-57616159F235}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>KDSPModels</RootNamespace>
+    <AssemblyName>KDSPModels</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="KDSPModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KDSPModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="KDSPModel.edmx.diagram">
+      <DependentUpon>KDSPModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HolidayCalendar.cs">
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KDSPModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KDSPModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KDSPModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KDSPModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KDSPModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterSheet.cs">
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.cs">
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PatientAppointment.cs">
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PatientPaymentHistory.cs">
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Therapist.cs">
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TherapistSchedule.cs">
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TherapyCharge.cs">
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WaitingList.cs">
+      <DependentUpon>KDSPModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KDSPModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KDSPModel.Context.cs</LastGenOutput>
+      <DependentUpon>KDSPModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="KDSPModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KDSPModel.edmx</DependentUpon>
+      <LastGenOutput>KDSPModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
