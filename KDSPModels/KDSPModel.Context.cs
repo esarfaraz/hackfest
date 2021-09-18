@@ -74,5 +74,26 @@ namespace KDSPModels
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_BookTherapistSchedule", therapistNameParameter, scheduleDateParameter, startTimeParameter, endTimeParameter, patientIdParameter, sessionNumberParameter);
         }
+    
+        public virtual int usp_ReceivePayment(Nullable<int> appId, string paymentstatus, Nullable<int> amount, string receiptNo)
+        {
+            var appIdParameter = appId.HasValue ?
+                new ObjectParameter("AppId", appId) :
+                new ObjectParameter("AppId", typeof(int));
+    
+            var paymentstatusParameter = paymentstatus != null ?
+                new ObjectParameter("Paymentstatus", paymentstatus) :
+                new ObjectParameter("Paymentstatus", typeof(string));
+    
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("Amount", amount) :
+                new ObjectParameter("Amount", typeof(int));
+    
+            var receiptNoParameter = receiptNo != null ?
+                new ObjectParameter("ReceiptNo", receiptNo) :
+                new ObjectParameter("ReceiptNo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_ReceivePayment", appIdParameter, paymentstatusParameter, amountParameter, receiptNoParameter);
+        }
     }
 }

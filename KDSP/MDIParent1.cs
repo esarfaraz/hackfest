@@ -126,5 +126,13 @@ namespace KDSP
             childForm.Text = "Window " + childFormNumber++;
             childForm.Show();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmReceivePayment childForm = new frmReceivePayment();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.Show();
+        }
     }
 }

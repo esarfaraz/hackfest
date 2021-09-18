@@ -73,6 +73,12 @@
     <Compile Include="frmAppointment.Designer.cs">
       <DependentUpon>frmAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReceivePayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReceivePayment.Designer.cs">
+      <DependentUpon>frmReceivePayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWaitingList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAppointment.resx">
       <DependentUpon>frmAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReceivePayment.resx">
+      <DependentUpon>frmReceivePayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWaitingList.resx">
       <DependentUpon>frmWaitingList.cs</DependentUpon>

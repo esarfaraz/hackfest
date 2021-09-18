@@ -20,5 +20,6 @@ namespace KDSPModelDTOs
         public string Status { get; set; }
         public string PaymentStatus { get; set; }
         public System.DateTime AppointmentDate { get; set; }
+        public string Therapy { get; set; }
     }
 }

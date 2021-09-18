@@ -146,6 +146,12 @@
         <Function Name="usp_GenerateTherapistSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TherapistId" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_ReceivePayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AppId" Type="int" Mode="In" />
+          <Parameter Name="Paymentstatus" Type="varchar" Mode="In" />
+          <Parameter Name="Amount" Type="int" Mode="In" />
+          <Parameter Name="ReceiptNo" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="KDSPModelStoreContainer">
           <EntitySet Name="HolidayCalendar" EntityType="Self.HolidayCalendar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MasterSheet" EntityType="Self.MasterSheet" Schema="dbo" store:Type="Tables" />
@@ -304,6 +310,12 @@
             <Parameter Name="PatientId" Mode="In" Type="Int32" />
             <Parameter Name="SessionNumber" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="usp_ReceivePayment">
+            <Parameter Name="AppId" Mode="In" Type="Int32" />
+            <Parameter Name="Paymentstatus" Mode="In" Type="String" />
+            <Parameter Name="Amount" Mode="In" Type="Int32" />
+            <Parameter Name="ReceiptNo" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="HolidayCalendar">
           <Key>
@@ -460,6 +472,7 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="usp_GenerateTherapistSchedule" FunctionName="KDSPModel.Store.usp_GenerateTherapistSchedule" />
           <FunctionImportMapping FunctionImportName="usp_BookTherapistSchedule" FunctionName="KDSPModel.Store.usp_BookTherapistSchedule" />
+          <FunctionImportMapping FunctionImportName="usp_ReceivePayment" FunctionName="KDSPModel.Store.usp_ReceivePayment" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

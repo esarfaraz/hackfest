@@ -39,7 +39,7 @@ namespace KDSPDAL
                                 {
                                     TherapistScheduleId = pa.TherapistScheduleId, PatientFullName=p.PatientFullName, TherapistFullName=t.TherapistFullName,
                                     PatientId = pa.PatientId, TherapistId=pa.TherapistId, AppointmentDate = pa.AppointmentDate, StartTime = ts.StartTime, EndTime=ts.EndTime,
-                                    Status = pa.Status, PaymentStatus = pa.PaymentStatus, SessionNumber = pa.SessionNumber, AppId = pa.Id
+                                    Status = pa.Status, PaymentStatus = pa.PaymentStatus, SessionNumber = pa.SessionNumber, AppId = pa.Id, Therapy = p.TherapyDept
                                      
                                 }).ToList<AppointmentDTO>();
                 return appointments;
@@ -86,6 +86,17 @@ namespace KDSPDAL
                 wl.Status = Status;
 
                 _entity.SaveChanges();
+                result = true;
+            }
+            return result;
+        }
+
+        public static bool ReceivePayment(int AppId, string PaymentStatus, int Amount, string ReceiptNo) // calling SaveStudentMethod for insert a new record    
+        {
+            bool result = false;
+            using (KDSPEntities _entity = new KDSPEntities())
+            {
+                _entity.usp_ReceivePayment(AppId, PaymentStatus, Amount, ReceiptNo);
                 result = true;
             }
             return result;
