@@ -33,6 +33,11 @@ namespace KDSP
 
             PatientDAL.SavePatient(p);
 
+            WaitingList wl = new WaitingList();
+            wl.PatientId = p.Id;
+            wl.Status = "Enrolled";
+            WaitingListDAL.SaveWaitingList(wl);
+
         }
 
         private void frmAddPatient_Load(object sender, EventArgs e)

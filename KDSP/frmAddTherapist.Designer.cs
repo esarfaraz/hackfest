@@ -29,10 +29,6 @@ namespace KDSP
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rdoST = new System.Windows.Forms.RadioButton();
-            this.rdoPT = new System.Windows.Forms.RadioButton();
-            this.rdoOT = new System.Windows.Forms.RadioButton();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,53 +50,11 @@ namespace KDSP
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.groupBox2.SuspendLayout();
+            this.chkOT = new System.Windows.Forms.CheckBox();
+            this.chkPT = new System.Windows.Forms.CheckBox();
+            this.chkST = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rdoST);
-            this.groupBox2.Controls.Add(this.rdoPT);
-            this.groupBox2.Controls.Add(this.rdoOT);
-            this.groupBox2.Location = new System.Drawing.Point(165, 139);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 100);
-            this.groupBox2.TabIndex = 32;
-            this.groupBox2.TabStop = false;
-            // 
-            // rdoST
-            // 
-            this.rdoST.AutoSize = true;
-            this.rdoST.Location = new System.Drawing.Point(7, 68);
-            this.rdoST.Name = "rdoST";
-            this.rdoST.Size = new System.Drawing.Size(104, 17);
-            this.rdoST.TabIndex = 2;
-            this.rdoST.TabStop = true;
-            this.rdoST.Text = "Speech Therapy";
-            this.rdoST.UseVisualStyleBackColor = true;
-            // 
-            // rdoPT
-            // 
-            this.rdoPT.AutoSize = true;
-            this.rdoPT.Location = new System.Drawing.Point(7, 44);
-            this.rdoPT.Name = "rdoPT";
-            this.rdoPT.Size = new System.Drawing.Size(106, 17);
-            this.rdoPT.TabIndex = 1;
-            this.rdoPT.TabStop = true;
-            this.rdoPT.Text = "Physical Therapy";
-            this.rdoPT.UseVisualStyleBackColor = true;
-            // 
-            // rdoOT
-            // 
-            this.rdoOT.AutoSize = true;
-            this.rdoOT.Location = new System.Drawing.Point(7, 20);
-            this.rdoOT.Name = "rdoOT";
-            this.rdoOT.Size = new System.Drawing.Size(130, 17);
-            this.rdoOT.TabIndex = 0;
-            this.rdoOT.TabStop = true;
-            this.rdoOT.Text = "Occupational Therapy";
-            this.rdoOT.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
@@ -285,11 +239,44 @@ namespace KDSP
             this.label9.TabIndex = 40;
             this.label9.Text = "Shift End Time:";
             // 
+            // chkOT
+            // 
+            this.chkOT.AutoSize = true;
+            this.chkOT.Location = new System.Drawing.Point(168, 155);
+            this.chkOT.Name = "chkOT";
+            this.chkOT.Size = new System.Drawing.Size(131, 17);
+            this.chkOT.TabIndex = 41;
+            this.chkOT.Text = "Occupational Therapy";
+            this.chkOT.UseVisualStyleBackColor = true;
+            // 
+            // chkPT
+            // 
+            this.chkPT.AutoSize = true;
+            this.chkPT.Location = new System.Drawing.Point(168, 179);
+            this.chkPT.Name = "chkPT";
+            this.chkPT.Size = new System.Drawing.Size(107, 17);
+            this.chkPT.TabIndex = 42;
+            this.chkPT.Text = "Physical Therapy";
+            this.chkPT.UseVisualStyleBackColor = true;
+            // 
+            // chkST
+            // 
+            this.chkST.AutoSize = true;
+            this.chkST.Location = new System.Drawing.Point(168, 203);
+            this.chkST.Name = "chkST";
+            this.chkST.Size = new System.Drawing.Size(105, 17);
+            this.chkST.TabIndex = 43;
+            this.chkST.Text = "Speech Therapy";
+            this.chkST.UseVisualStyleBackColor = true;
+            // 
             // frmAddTherapist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.chkST);
+            this.Controls.Add(this.chkPT);
+            this.Controls.Add(this.chkOT);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -298,7 +285,6 @@ namespace KDSP
             this.Controls.Add(this.cmbStartTime);
             this.Controls.Add(this.dtClinicEndDate);
             this.Controls.Add(this.dtClinicStartDate);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -313,8 +299,6 @@ namespace KDSP
             this.Name = "frmAddTherapist";
             this.Text = "AddTherapist";
             this.Load += new System.EventHandler(this.AddTherapist_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -323,11 +307,6 @@ namespace KDSP
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton rdoST;
-        private System.Windows.Forms.RadioButton rdoPT;
-        private System.Windows.Forms.RadioButton rdoOT;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -349,5 +328,8 @@ namespace KDSP
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox chkOT;
+        private System.Windows.Forms.CheckBox chkPT;
+        private System.Windows.Forms.CheckBox chkST;
     }
 }

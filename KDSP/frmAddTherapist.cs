@@ -37,6 +37,9 @@ namespace KDSP
             p.TherapistFullName = txtTherapistName.Text;
             p.Sex = rdoF.Checked ? "F" : "M";
             p.Status = "Active";
+            p.OTTherapist = chkOT.Checked ? "Y" : "N";
+            p.PTTherapist = chkPT.Checked ? "Y" : "N";
+            p.StTherapist = chkST.Checked ? "Y" : "N";
             //p.TherapyDept = rdoOT.Checked ? "OT" : rdoPT.Checked ? "PT" : "ST";
             p.ClinicStartDate = dtClinicStartDate.Value;
             p.ClinicEndDate = dtClinicEndDate.Value;
