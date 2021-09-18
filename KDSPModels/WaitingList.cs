@@ -18,5 +18,6 @@ namespace KDSPModels
         public Nullable<int> PatientId { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public string Status { get; set; }
+        public string Remarks { get; set; }
     }
 }

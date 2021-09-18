@@ -133,7 +133,16 @@
           <Property Name="PatientId" Type="int" />
           <Property Name="DateCreated" Type="datetime" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
         </EntityType>
+        <Function Name="usp_BookTherapistSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TherapistName" Type="varchar" Mode="In" />
+          <Parameter Name="ScheduleDate" Type="date" Mode="In" />
+          <Parameter Name="StartTime" Type="time" Mode="In" />
+          <Parameter Name="EndTime" Type="time" Mode="In" />
+          <Parameter Name="PatientId" Type="int" Mode="In" />
+          <Parameter Name="SessionNumber" Type="int" Mode="In" />
+        </Function>
         <Function Name="usp_GenerateTherapistSchedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TherapistId" Type="int" Mode="In" />
         </Function>
@@ -272,6 +281,7 @@
           <Property Name="PatientId" Type="Int32" />
           <Property Name="DateCreated" Type="DateTime" Precision="3" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="KDSPEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MasterSheets" EntityType="Self.MasterSheet" />
@@ -285,6 +295,14 @@
           <EntitySet Name="HolidayCalendars" EntityType="KDSPModel.HolidayCalendar" />
           <FunctionImport Name="usp_GenerateTherapistSchedule">
           <Parameter Name="TherapistId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_BookTherapistSchedule">
+            <Parameter Name="TherapistName" Mode="In" Type="String" />
+            <Parameter Name="ScheduleDate" Mode="In" Type="DateTime" />
+            <Parameter Name="StartTime" Mode="In" Type="Time" />
+            <Parameter Name="EndTime" Mode="In" Type="Time" />
+            <Parameter Name="PatientId" Mode="In" Type="Int32" />
+            <Parameter Name="SessionNumber" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="HolidayCalendar">
@@ -423,6 +441,7 @@
           <EntitySetMapping Name="WaitingLists">
             <EntityTypeMapping TypeName="KDSPModel.WaitingList">
               <MappingFragment StoreEntitySet="WaitingList">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PatientId" ColumnName="PatientId" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
@@ -440,6 +459,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="usp_GenerateTherapistSchedule" FunctionName="KDSPModel.Store.usp_GenerateTherapistSchedule" />
+          <FunctionImportMapping FunctionImportName="usp_BookTherapistSchedule" FunctionName="KDSPModel.Store.usp_BookTherapistSchedule" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

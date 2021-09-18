@@ -22,6 +22,33 @@ namespace KDSPDAL
             return result;
         }
 
+        public static bool UpdateWaitingListToBooked(int WLId) // calling SaveStudentMethod for insert a new record    
+        {
+            bool result = false;
+            using (KDSPEntities _entity = new KDSPEntities())
+            {
+                WaitingList wl = _entity.WaitingLists.Find(WLId);
+                wl.Status = "Booked";
+                
+                _entity.SaveChanges();
+                result = true;
+            }
+            return result;
+        }
+
+        public static bool UpdateWaitingListRemarks(int WLId, string remarks) // calling SaveStudentMethod for insert a new record    
+        {
+            bool result = false;
+            using (KDSPEntities _entity = new KDSPEntities())
+            {
+                WaitingList wl = _entity.WaitingLists.Find(WLId);
+                wl.Remarks = remarks;
+
+                _entity.SaveChanges();
+                result = true;
+            }
+            return result;
+        }
         public static List<PatientWaitingDTO> GetPatientWaitings()
         {
             using (KDSPEntities _entity = new KDSPEntities())

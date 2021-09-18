@@ -32,5 +32,15 @@ namespace KDSPDAL
             }
             return result;
         }
+
+        public static List<Therapist> GetAllTherapists()   
+        {
+            using (KDSPEntities _entity = new KDSPEntities())
+            {
+                return _entity.Therapists.OrderBy(x => x.TherapistFullName).ToList();
+
+            }
+        }
+
     }
 }

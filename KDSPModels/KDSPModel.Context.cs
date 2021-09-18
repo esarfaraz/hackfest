@@ -45,5 +45,34 @@ namespace KDSPModels
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_GenerateTherapistSchedule", therapistIdParameter);
         }
+    
+        public virtual int usp_BookTherapistSchedule(string therapistName, Nullable<System.DateTime> scheduleDate, Nullable<System.TimeSpan> startTime, Nullable<System.TimeSpan> endTime, Nullable<int> patientId, Nullable<int> sessionNumber)
+        {
+            var therapistNameParameter = therapistName != null ?
+                new ObjectParameter("TherapistName", therapistName) :
+                new ObjectParameter("TherapistName", typeof(string));
+    
+            var scheduleDateParameter = scheduleDate.HasValue ?
+                new ObjectParameter("ScheduleDate", scheduleDate) :
+                new ObjectParameter("ScheduleDate", typeof(System.DateTime));
+    
+            var startTimeParameter = startTime.HasValue ?
+                new ObjectParameter("StartTime", startTime) :
+                new ObjectParameter("StartTime", typeof(System.TimeSpan));
+    
+            var endTimeParameter = endTime.HasValue ?
+                new ObjectParameter("EndTime", endTime) :
+                new ObjectParameter("EndTime", typeof(System.TimeSpan));
+    
+            var patientIdParameter = patientId.HasValue ?
+                new ObjectParameter("PatientId", patientId) :
+                new ObjectParameter("PatientId", typeof(int));
+    
+            var sessionNumberParameter = sessionNumber.HasValue ?
+                new ObjectParameter("SessionNumber", sessionNumber) :
+                new ObjectParameter("SessionNumber", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_BookTherapistSchedule", therapistNameParameter, scheduleDateParameter, startTimeParameter, endTimeParameter, patientIdParameter, sessionNumberParameter);
+        }
     }
 }

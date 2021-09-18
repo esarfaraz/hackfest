@@ -39,7 +39,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PatientWaiting.cs" />
+    <Compile Include="AppointmentDTO.cs" />
+    <Compile Include="BookAppointmentDTO.cs" />
+    <Compile Include="PatientWaitingDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

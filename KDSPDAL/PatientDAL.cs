@@ -20,5 +20,15 @@ namespace KDSPDAL
             }
             return result;
         }
+
+        public static List<Patient> GetAllPatients()
+        {
+            using (KDSPEntities _entity = new KDSPEntities())
+            {
+                return _entity.Patients.OrderBy(x => x.PatientFullName).ToList();
+
+            }
+        }
+
     }
 }

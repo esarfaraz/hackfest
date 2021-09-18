@@ -13,7 +13,7 @@ namespace KDSPDAL
 		public static string myConn = "Data Source=.;Initial Catalog=KDSP;Integrated Security=True;";
 		public static DataTable GetPatientWaitings()
 		{
-			string SelectQuery = "select * from v_PatientWaitingList where WLStatus = 'Waiting'";
+			string SelectQuery = "select * from v_PatientWaitingList ";
 			var datatable = new DataTable();
 			using (SqlConnection con = new SqlConnection(myConn))
 			{
