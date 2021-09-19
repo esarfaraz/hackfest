@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KDSPDAL", "KDSPDAL\KDSPDAL.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KDSPModelDTOs", "KDSPModelDTOs\KDSPModelDTOs.csproj", "{D1B368A7-A388-4658-A43F-47F2708CDCAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KDSP.Database", "KDSP.Database\KDSP.Database.csproj", "{6E19F92E-A41F-4C6C-889C-77E6126B8224}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D1B368A7-A388-4658-A43F-47F2708CDCAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1B368A7-A388-4658-A43F-47F2708CDCAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1B368A7-A388-4658-A43F-47F2708CDCAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E19F92E-A41F-4C6C-889C-77E6126B8224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E19F92E-A41F-4C6C-889C-77E6126B8224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E19F92E-A41F-4C6C-889C-77E6126B8224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E19F92E-A41F-4C6C-889C-77E6126B8224}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

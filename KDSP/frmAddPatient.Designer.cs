@@ -63,6 +63,7 @@ namespace KDSP
             // 
             // btnRegister
             // 
+            this.btnRegister.BackColor = System.Drawing.Color.LawnGreen;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.Location = new System.Drawing.Point(153, 320);
             this.btnRegister.Name = "btnRegister";
@@ -164,6 +165,7 @@ namespace KDSP
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Orange;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(378, 320);

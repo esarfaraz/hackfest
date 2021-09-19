@@ -68,7 +68,7 @@ namespace KDSP
             this.WLId});
             this.dataGridView1.Location = new System.Drawing.Point(12, 45);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(456, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(546, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -239,9 +239,9 @@ namespace KDSP
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(496, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(585, 20);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(261, 207);
+            this.pictureBox1.Size = new System.Drawing.Size(203, 207);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6E19F92E-A41F-4C6C-889C-77E6126B8224}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>KDSP.Database</RootNamespace>
+    <AssemblyName>KDSP.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Stored Procedures\dbo.usp_BookTherapistSchedule.StoredProcedure.sql" />
+    <Content Include="Stored Procedures\dbo.usp_GenerateTherapistSchedule.StoredProcedure.sql" />
+    <Content Include="Stored Procedures\dbo.usp_ReceivePayment.StoredProcedure.sql" />
+    <Content Include="Tables\dbo.HolidayCalendar.Table.sql" />
+    <Content Include="Tables\dbo.MasterSheet.Table.sql" />
+    <Content Include="Tables\dbo.PatientAppointments.Table.sql" />
+    <Content Include="Tables\dbo.PatientPaymentHistory.Table.sql" />
+    <Content Include="Tables\dbo.Patients.Table.sql" />
+    <Content Include="Tables\dbo.Therapists.Table.sql" />
+    <Content Include="Tables\dbo.TherapistSchedule.Table.sql" />
+    <Content Include="Tables\dbo.TherapyCharges.Table.sql" />
+    <Content Include="Tables\dbo.WaitingList.Table.sql" />
+    <Content Include="Views\dbo.v_PatientWaitingList.View.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
