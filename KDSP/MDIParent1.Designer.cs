@@ -30,6 +30,7 @@ namespace KDSP
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.PatientMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.AddPatientMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,27 +73,29 @@ namespace KDSP
             this.AddPatientMenu,
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
+            this.PatientMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatientMenu.Name = "PatientMenu";
-            this.PatientMenu.Size = new System.Drawing.Size(61, 20);
+            this.PatientMenu.Size = new System.Drawing.Size(64, 20);
             this.PatientMenu.Text = "&Patients";
             // 
             // AddPatientMenu
             // 
             this.AddPatientMenu.Name = "AddPatientMenu";
-            this.AddPatientMenu.Size = new System.Drawing.Size(231, 22);
+            this.AddPatientMenu.Size = new System.Drawing.Size(238, 22);
             this.AddPatientMenu.Text = "Add Patient";
             this.AddPatientMenu.Click += new System.EventHandler(this.AddPatientMenu_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(231, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(238, 22);
             this.toolStripMenuItem3.Text = "Manage Patient Appointment";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(231, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(238, 22);
             this.toolStripMenuItem4.Text = "Manage Patient";
             // 
             // TherapistMenu
@@ -101,27 +104,29 @@ namespace KDSP
             this.AddTherapistMenu,
             this.toolStripMenuItem2,
             this.toolStripMenuItem5});
+            this.TherapistMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TherapistMenu.Name = "TherapistMenu";
-            this.TherapistMenu.Size = new System.Drawing.Size(72, 20);
+            this.TherapistMenu.Size = new System.Drawing.Size(76, 20);
             this.TherapistMenu.Text = "Therapists";
             // 
             // AddTherapistMenu
             // 
             this.AddTherapistMenu.Name = "AddTherapistMenu";
-            this.AddTherapistMenu.Size = new System.Drawing.Size(219, 22);
+            this.AddTherapistMenu.Size = new System.Drawing.Size(227, 22);
             this.AddTherapistMenu.Text = "Add Therapist";
             this.AddTherapistMenu.Click += new System.EventHandler(this.AddTherapistMenu_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(219, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(227, 22);
             this.toolStripMenuItem2.Text = "Manage Therapist Schedule";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(219, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(227, 22);
             this.toolStripMenuItem5.Text = "Manage Therapist";
             // 
             // AppointmentMenu
@@ -130,28 +135,29 @@ namespace KDSP
             this.WaitingListMenu,
             this.MngTherapistMenu,
             this.toolStripMenuItem1});
+            this.AppointmentMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppointmentMenu.Name = "AppointmentMenu";
-            this.AppointmentMenu.Size = new System.Drawing.Size(95, 20);
+            this.AppointmentMenu.Size = new System.Drawing.Size(98, 20);
             this.AppointmentMenu.Text = "Appointments";
             // 
             // WaitingListMenu
             // 
             this.WaitingListMenu.Name = "WaitingListMenu";
-            this.WaitingListMenu.Size = new System.Drawing.Size(196, 22);
+            this.WaitingListMenu.Size = new System.Drawing.Size(200, 22);
             this.WaitingListMenu.Text = "Waiting List";
             this.WaitingListMenu.Click += new System.EventHandler(this.WaitingListMenu_Click);
             // 
             // MngTherapistMenu
             // 
             this.MngTherapistMenu.Name = "MngTherapistMenu";
-            this.MngTherapistMenu.Size = new System.Drawing.Size(196, 22);
+            this.MngTherapistMenu.Size = new System.Drawing.Size(200, 22);
             this.MngTherapistMenu.Text = "Manage Appointments";
             this.MngTherapistMenu.Click += new System.EventHandler(this.MngTherapistMenu_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(196, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItem1.Text = "Receive Payment";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -160,20 +166,21 @@ namespace KDSP
             this.toolStripMenuItem6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem7,
             this.toolStripMenuItem8});
+            this.toolStripMenuItem6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(93, 20);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(95, 20);
             this.toolStripMenuItem6.Text = "Configuration";
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(208, 22);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(213, 22);
             this.toolStripMenuItem7.Text = "Manage Calendar";
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(208, 22);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(213, 22);
             this.toolStripMenuItem8.Text = "Manage Therapy Charges";
             // 
             // statusStrip
@@ -196,13 +203,18 @@ namespace KDSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(632, 453);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MDIParent1";
-            this.Text = "MDIParent1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "KDSP Patient Management System";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);

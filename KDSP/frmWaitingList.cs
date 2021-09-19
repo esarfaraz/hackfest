@@ -159,6 +159,8 @@ namespace KDSP
 
                 AppointmentDAL.SaveBookAppointment(lst);
                 WaitingListDAL.UpdateWaitingListToBooked(Int32.Parse(WaitingListId));
+
+                this.Close();
             }
         }
 
@@ -173,6 +175,11 @@ namespace KDSP
             {
                 WaitingListDAL.UpdateWaitingListRemarks(Int32.Parse(WaitingListId), textBox1.Text);
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void btnSelToAvl_Click(object sender, EventArgs e)

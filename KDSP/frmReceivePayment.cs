@@ -86,5 +86,10 @@ namespace KDSP
             AppointmentDAL.ReceivePayment(Int32.Parse(txtAppId.Text), cmbPaymentStatus.Text, Int32.Parse(txtAmount.Text), txtReceipt.Text);
             LoadAppointmentsByPatient();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

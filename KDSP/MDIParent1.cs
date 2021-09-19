@@ -99,15 +99,16 @@ namespace KDSP
         {
             frmAddPatient childForm = new frmAddPatient();
             childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
+            childForm.Text = "Add Patient";
             childForm.Show();
+            //childForm.showdialog(this.MdiParent);
         }
 
         private void AddTherapistMenu_Click(object sender, EventArgs e)
         {
             frmAddTherapist childForm = new frmAddTherapist();
             childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
+            childForm.Text = "Add Therapist";
             childForm.Show();
         }
 
@@ -115,7 +116,7 @@ namespace KDSP
         {
             frmWaitingList childForm = new frmWaitingList();
             childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
+            childForm.Text = "Manage Waiting List";
             childForm.Show();
         }
 
@@ -123,7 +124,7 @@ namespace KDSP
         {
             frmAppointment childForm = new frmAppointment();
             childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
+            childForm.Text = "Manage Appointments";
             childForm.Show();
         }
 
@@ -131,7 +132,23 @@ namespace KDSP
         {
             frmReceivePayment childForm = new frmReceivePayment();
             childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
+            childForm.Text = "Receive Payment";
+            childForm.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            frmAppointment childForm = new frmAppointment();
+            childForm.MdiParent = this;
+            childForm.Text = "Manage Appointments";
+            childForm.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmAppointment childForm = new frmAppointment();
+            childForm.MdiParent = this;
+            childForm.Text = "Manage Appointments";
             childForm.Show();
         }
     }
