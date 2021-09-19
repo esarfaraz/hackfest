@@ -83,8 +83,12 @@ namespace KDSP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AppointmentDAL.ReceivePayment(Int32.Parse(txtAppId.Text), cmbPaymentStatus.Text, Int32.Parse(txtAmount.Text), txtReceipt.Text);
-            LoadAppointmentsByPatient();
+            if (Int32.Parse(txtAppId.Text) > 0 && Int32.Parse(txtAmount.Text) >0 && txtReceipt.Text.Length>0)
+            {
+                AppointmentDAL.ReceivePayment(Int32.Parse(txtAppId.Text), cmbPaymentStatus.Text, Int32.Parse(txtAmount.Text), txtReceipt.Text);
+                MessageBox.Show("Payment received successfully. You can now proceed to Waiting List.");
+                LoadAppointmentsByPatient();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -113,6 +113,7 @@ namespace KDSP
         private void btnUpdStatus_Click(object sender, EventArgs e)
         {
             AppointmentDAL.UpdateAppointmentStatus(Int32.Parse(txtAppId.Text), cmbStatus.Text);
+            MessageBox.Show("Appointments booked successfully. You can now proceed to Receive Payment screen.");
             if (FormMode == "Patient")
             {
                 LoadAppointmentsByPatient();
